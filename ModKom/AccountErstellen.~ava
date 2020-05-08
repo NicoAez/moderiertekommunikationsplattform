@@ -1,0 +1,56 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.util.Hashtable;
+import java.awt.font.TextAttribute;
+
+/**
+ *
+ * Beschreibung
+ *
+ * @version 1.0 vom 09.03.2020
+ * @author 
+ */
+
+public class Anmeldefenster extends JFrame {
+  // Anfang Attribute
+  
+  // Ende Attribute
+  
+  public Anmeldefenster() { 
+    // Frame-Initialisierung
+    super();
+    setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+    int frameWidth = 526; 
+    int frameHeight = 410;
+    setSize(frameWidth, frameHeight);
+    Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+    int x = (d.width - getSize().width) / 2;
+    int y = (d.height - getSize().height) / 2;
+    setLocation(x, y);
+    setTitle("Anmeldefenster");
+    setResizable(false);
+    Container cp = getContentPane();
+    cp.setLayout(null);
+    // Anfang Komponenten
+    
+    
+    // Ende Komponenten
+    
+    setVisible(true);
+  } // end of public BankOverlay
+  
+  // Anfang Methoden
+  
+  public static void main(String[] args) {
+    new Anmeldefenster();
+  } // end of main
+  
+  public void bLogin_ActionPerformed(ActionEvent evt) {
+
+  } // end of bLogin_ActionPerformed
+
+  // Ende Methoden
+} // end of class BankOverlay
+
