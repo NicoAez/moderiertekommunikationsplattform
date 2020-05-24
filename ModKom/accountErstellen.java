@@ -1,9 +1,7 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.font.TextAttribute;
-import java.util.Hashtable;
 import javax.swing.*;
-import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *

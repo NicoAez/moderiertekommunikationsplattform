@@ -1,10 +1,7 @@
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.font.TextAttribute;
-import java.util.Hashtable;
 import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.JFrame;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -27,7 +24,7 @@ public class Anmeldefenster extends JFrame{
   private JButton bNochKeinenAccount = new JButton();
   
   private String benutzername = "Admin";
-  private String passwort = "1234";
+  private String passwort = "187";
   
   JLabel lLeer = new JLabel();
   JLabel lErstellt = new JLabel();
