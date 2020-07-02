@@ -24,7 +24,6 @@ public class Anmeldefenster extends JFrame{
   private JButton bNochKeinenAccount = new JButton();
   
   private String benutzername = "Admin";
-  private String passwort = "187";
   
   JLabel lLeer = new JLabel();
   JLabel lErstellt = new JLabel();
@@ -128,7 +127,7 @@ public class Anmeldefenster extends JFrame{
     lText.setFont(new Font("Dialog", Font.BOLD, 18));
     cp.add(lText);
     lText2.setBounds(41, 353, 821, 25);
-    lText2.setText("Melden Sie sich anschließend mit ihren Daten an");
+    lText2.setText("Melden Sie sich anschlieÃŸend mit ihren Daten an");
     lText2.setFont(new Font("Dialog", Font.BOLD, 18));
     cp.add(lText2);
     lBenutzername.setBounds(95, 418, 110, 20);
@@ -179,7 +178,7 @@ public class Anmeldefenster extends JFrame{
           lLeer.repaint();
           
           //Problem: Hier wird dennoch ein Account erstellt mit BN = "" und PW = "" mit dem sich angemeldet werden kann
-          //Möglicher Fix: benutzername und passwort werden erst überschrieben wenn beide Felder nicht leer sind
+          //MÃ¶glicher Fix: benutzername und passwort werden erst Ã¼berschrieben wenn beide Felder nicht leer sind
         }
    
       }
@@ -193,12 +192,12 @@ public class Anmeldefenster extends JFrame{
      //return jTextField1;
    // }
   public void bLogin_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     
   } // end of bLogin_ActionPerformed
 
   public void bNochKeinenAccount_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     
   } // end of bNochKeinenAccount_ActionPerformed
 
