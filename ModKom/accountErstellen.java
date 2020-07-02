@@ -61,7 +61,7 @@ public class accountErstellen extends JFrame {
       public void actionPerformed(ActionEvent evt) { 
         bAccounterstellen_ActionPerformed(evt);
         //Nachdem der User einen Benutzername und ein Passwort eingegeben hat sollen diese Strings auf eine
-        //Variable geschrieben werden und an die Klasse Anmeldefenster geschickt werden, damit überprüft werden
+        //Variable geschrieben werden und an die Klasse Anmeldefenster geschickt werden damit Ã¼berprÃ¼ft werden
         //kann ob diese richtig sind und dann soll der User Zugang bekommen
       }
     });
@@ -78,7 +78,7 @@ public class accountErstellen extends JFrame {
   } // end of main
   
   public void bAccounterstellen_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    // TODO hier Quelltext einfÃ¼gen
     
   } // end of bAccounterstellen_ActionPerformed
 
