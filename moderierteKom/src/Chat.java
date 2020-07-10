@@ -20,6 +20,7 @@ public class Chat extends Observable
         this.id = id;
         datenbank = d;
 
+        addNachricht(new Nachricht("System", 0, "erste nachricht"));
     }
 
     public int getID()
@@ -29,6 +30,11 @@ public class Chat extends Observable
     public void registrieren(Observer o)
     {
         addObserver(o);
+    }
+    private void update()
+    {
+        setChanged();
+        notifyObservers();
     }
     public void addNachricht(Nachricht n)
     {
@@ -47,6 +53,7 @@ public class Chat extends Observable
                 nachricht.add(n);
             }
         }
+        update();
     }
     public void deleteMessage(Nachricht n, int e)
     {
@@ -54,6 +61,7 @@ public class Chat extends Observable
         {
             nachricht.get(nachricht.indexOf(n)).setNachricht("Nachricht wurde geloescht.");
         }
+        update();
     }
     public void addModerator(int i, int e)
     {
@@ -65,6 +73,7 @@ public class Chat extends Observable
                 nachricht.add(new Nachricht("System", 0, datenbank.getName(i)+" ist jetzt Moderator ("+datenbank.getName(e)+")"));
             }
         }
+        update();
     }
     public void deleteModerator(int i, int e)
     {
@@ -76,6 +85,7 @@ public class Chat extends Observable
                 nachricht.add(new Nachricht("System", 0, datenbank.getName(i)+" ist nun kein Moderator mehr! ("+datenbank.getName(e)+")"));
             }
         }
+        update();
     }
     public void addBenutzer(int i) // überflüssig, sofern nicht immer kontrolliert wird ob ID wirklich Benutzer ist
     {
@@ -94,6 +104,7 @@ public class Chat extends Observable
                 }
             }
         }
+        update();
     }
     public void deleteBan(int i, int e)
     {
@@ -118,9 +129,11 @@ public class Chat extends Observable
                 nachricht.add(new Nachricht("System", 0, "Der mod-only Modus ist nun aktiv. ("+datenbank.getName(i)+")"));
             }
         }
+        update();
     }
     public List<Nachricht> getLog()
     {
         return nachricht;
     }
+
 }

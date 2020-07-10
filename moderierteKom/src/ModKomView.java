@@ -239,6 +239,17 @@ public class ModKomView extends JFrame
             topPane.setSelectedComponent(topPaneS);
         }
     }
+    List<anzeigeChat> getChat()
+    {
+        return chatCard;
+    }
+    void clear()
+    {
+        for(int i = 0; i<chatCard.size(); i++)
+        {
+            chatCard.get(i).clear();
+        }
+    }
     String getAName()
     {
         return nameField.getText();

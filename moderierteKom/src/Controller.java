@@ -1,7 +1,9 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Controller
+public class Controller implements Observer
 {
     private ModKomView view;
     private ModKom model;
@@ -10,6 +12,8 @@ public class Controller
     {
         view = mkv;
         model = mk;
+
+        registrieren();
 
         this.view.alCloseButton(new ActionListener() {
             @Override
@@ -71,6 +75,16 @@ public class Controller
                 model.addNachricht(view.getNachricht(model.getCS()));
             }
         });
-    }
 
+    }
+    public void registrieren()
+    {
+        model.registrierenOb(this);
+    }
+    @Override
+    public void update(Observable o, Object arg)
+    {
+        view.clear();
+        model.updateChat(view.getChat());
+    }
 }

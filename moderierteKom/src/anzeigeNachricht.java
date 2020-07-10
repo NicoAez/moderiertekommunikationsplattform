@@ -12,20 +12,33 @@ public class anzeigeNachricht extends JTextArea implements MouseListener
 {
     private ActionListener al;
     private Color farbe = new Color(11, 77, 92, 255);
+    private Color aFarbe = new Color(72, 121, 62);
     private Color sFarbe = new Color(255, 255, 255);
     private Color hlFarbe = farbe.brighter();
     private int state;
+    private boolean own;
 
-    public anzeigeNachricht(String name, String nachricht)
+    public anzeigeNachricht(boolean b, String name, String nachricht)
     {
+        //setPreferredSize(new Dimension(280, 50));
+        setMaximumSize(new Dimension(280, Integer.MAX_VALUE));
         setEditable(false);
         setText(name+"\n"+nachricht);
         setLineWrap(true);
         setWrapStyleWord(true);
         addMouseListener(this);
         setBorder(new EmptyBorder(5,10,5,10));
-        setBackground(farbe);
         setForeground(sFarbe);
+        own = b;
+
+        if(b)
+        {
+            setBackground(aFarbe);
+        }
+        else
+        {
+            setBackground(farbe);
+        }
     }
 
     @Override
@@ -44,7 +57,14 @@ public class anzeigeNachricht extends JTextArea implements MouseListener
     public void mouseReleased(MouseEvent e)
     {
         //al.actionPerformed(new ActionEvent(this, ActionEvent.ACTION_PERFORMED, "187"));
-        setBackground(farbe);
+        if(own)
+        {
+            setBackground(aFarbe);
+        }
+        else
+        {
+            setBackground(farbe);
+        }
         state = 0;
         repaint();
     }
@@ -59,7 +79,14 @@ public class anzeigeNachricht extends JTextArea implements MouseListener
     @Override
     public void mouseExited(MouseEvent e)
     {
-        setBackground(farbe);
+        if(own)
+        {
+            setBackground(aFarbe);
+        }
+        else
+        {
+            setBackground(farbe);
+        }
         state = 0;
         repaint();
     }

@@ -7,13 +7,15 @@ import java.util.List;
 
 public class anzeigeChat extends JPanel
 {
-    JScrollPane scrollPane = new JScrollPane();
-    JScrollPane scrollText = new JScrollPane();
-    JPanel panel = new JPanel();
-    JPanel textPanel = new JPanel();
-    JButton button = new JButton();
-    JTextArea textField = new JTextArea();
-    GridBagConstraints c = new GridBagConstraints();
+    private int counter = 0;
+    private List<anzeigeNachricht> nList = new ArrayList<anzeigeNachricht>();
+    private JScrollPane scrollPane = new JScrollPane();
+    private JScrollPane scrollText = new JScrollPane();
+    private JPanel panel = new JPanel();
+    private JPanel textPanel = new JPanel();
+    private JButton button = new JButton();
+    private JTextArea textField = new JTextArea();
+    private GridBagConstraints c = new GridBagConstraints();
 
     public anzeigeChat()
     {
@@ -32,7 +34,6 @@ public class anzeigeChat extends JPanel
         textField.setMaximumSize(new Dimension(1000,50));
         textField.setLineWrap(true);
         textField.setWrapStyleWord(true);
-        textField.setText("now its working for whatever reason 187 marching band");
         textField.setFont(new Font("Robot", Font.PLAIN, 20));
         scrollText.setViewportView(textField);
         textPanel.add(button, BorderLayout.EAST);
@@ -42,42 +43,42 @@ public class anzeigeChat extends JPanel
         c.fill = GridBagConstraints.HORIZONTAL;
         c.weightx = 1.0;
 
-        String testString = "omgwaseinlangerundwilderstringdernurdazudaistumzuschauenwaspassiertwenndertexteinfachmassiv zu lang ist für das panel" +
-                "und deren maxima um vieles überschreitet, ja genau das will ich hiermit herrausfinden und werde dann sehen, was ich dagegen tun" +
-                "kann! wünscht mir bitte viel glück und vielleicht geschieht der zeilenumbruch auf magischerweise ja irgendwie von alleine ohne" +
-                "das ich noch viel einstellen muss das wäre natürlich HYPERWILD"; // :)
-        int counterRL = 0;
-        int counter = 0;
-        List<anzeigeNachricht> labelList = new ArrayList<anzeigeNachricht>();
-        for(int i=0; i<100; i++)
-        {
-            labelList.add(new anzeigeNachricht("Nico", "anzeige TExt nachricht 187 so etwas ist das genaus so etwas du hund"+testString));
-            if(counterRL==0)
-            {
-                c.anchor = GridBagConstraints.WEST;
-                c.gridx = 0;
-                c.gridy = counter;
-                panel.add(labelList.get(i), c);
-                counterRL++;
-                counter++;
-            }
-            else if(counterRL==1)
-            {
-                c.anchor = GridBagConstraints.EAST;
-                c.gridx = 1;
-                c.gridy = counter;
-                panel.add(labelList.get(i), c);
-                counterRL = 0;
-                counter++;
-            }
-        }
         scrollPane.setViewportView(panel);
         add(scrollPane);
         add(textPanel);
     }
+    public void addNachricht(boolean b, String name, String nachricht)
+    {
+        anzeigeNachricht aN = new anzeigeNachricht(b, name, nachricht);
+        nList.add(aN);
+        if(b)
+        {
+            c.anchor = GridBagConstraints.EAST;
+            c.gridx = 1;
+        }
+        else
+        {
+            c.anchor = GridBagConstraints.WEST;
+            c.gridx = 0;
+        }
+        c.gridy = counter;
+        panel.add(aN, c);
+        counter++;
+    }
+    public void clear()
+    {
+        for(int i = 0; i<nList.size(); i++)
+        {
+            panel.remove(nList.get(i));
+        }
+        nList.clear();
+        counter = 0;
+    }
     public String getNachricht()
     {
-        return textField.getText();
+        String s = textField.getText();
+        textField.setText("");
+        return s;
     }
     public void alButton(ActionListener al)
     {
