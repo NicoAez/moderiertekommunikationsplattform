@@ -20,6 +20,8 @@ Bekannte Fehler und Sonstiges:
 - Am Anfang wird kein Chat links als "ausgewählt" angezeigt, Chat 1 ist in dem Fall ausgewählt.
 - Wenn man eine Nachricht bekommt oder eine Nachricht schreib muss man auf einen anderen Chat klicken und dann wieder zum anderen Chat damit die Änderung
   angezeigt wird.
-- Andere Funktionen wie bannen oder Nachrichten löschen funktionieren noch nicht. 
+- Andere Funktionen wie bannen oder Nachrichten löschen funktionieren noch nicht.
+- Ich habe leider coolere Fonts als ihr auf dem PC, welche ich leider teilweise benutzt habe. ( :( ) Deswegen ist bei euch eventuell bei der Anmeldeseite die
+  Überschrift viel zu groß. (-> Werde ich in Zukunft notgedrungen wieder ändern)
 
 Wenn ihr Fehler findet oder Anregungen habt, wie besprochen im #allgemein Channel auf Discord.
