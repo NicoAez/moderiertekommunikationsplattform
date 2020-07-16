@@ -18,10 +18,6 @@ Anmeldedaten:
 <----->
 
 Bekannte Fehler und Sonstiges:
-- Am Anfang wird kein Chat links als "ausgewählt" angezeigt, Chat 1 ist in dem Fall ausgewählt.
-- Ich habe leider coolere Fonts als ihr auf dem PC, welche ich leider teilweise benutzt habe. ( :( ) Deswegen ist bei euch eventuell bei der Anmeldeseite die
-  Überschrift viel zu groß. (-> Werde ich in Zukunft notgedrungen wieder ändern)
-  
-- In einer zukünftigen Version kann man keine Nachrichten von Admins und Moderatoren löschen
+- Keine bekannten Fehler und auch keine fest geplanten zukünftigen Änderungen. (evtl. Design hier und da)
 
 Wenn ihr Fehler findet oder Anregungen habt, wie besprochen im #allgemein Channel auf Discord.
