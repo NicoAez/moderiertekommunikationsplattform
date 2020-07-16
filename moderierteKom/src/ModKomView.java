@@ -131,7 +131,7 @@ public class ModKomView extends JFrame
 
         label.setPreferredSize(new Dimension(300,100));
         label.setForeground(fore);
-        label.setFont(new Font("VT323", Font.BOLD, 43));
+        label.setFont(new Font("Calibri", Font.BOLD, 40));
         label.setText("Willkommen bei der moderiertenKommunikationsplattform. Bitte anmelden!");
 
         //viewPane

@@ -20,7 +20,9 @@ public class Chat extends Observable
         this.id = id;
         datenbank = d;
 
-        addNachricht(new Nachricht("System", 0, "Erste Nachricht wird jetzt als changelog abused: \n - fenster zum testen von sachen auf gechillter 187 basis, wer nicht checkt wie man das benutzt der hat sich nicht genug damit auseinandergesetzt"));
+        addNachricht(new Nachricht("System", 0, "Erste Nachricht wird jetzt als changelog abused: \n - Moderatoren können keine anderen Moderatoren hinzufügen oder entfernen" +
+                "\n - Jeder kann seine eigenen Nachrichten löschen \n - Moderatoren können keine Nachrichten von Moderatoren löschen, Admins können alle Nachrichten löschen" +
+                "\n - Moderatoren können keine Moderatoren bzw. Admins bannen \n - Wenn ein Admin ein Moderator bannt wird dieser aus den Moderatoren entfernt und gebannt"));
 
         moderator.add(187);
     }
@@ -59,15 +61,26 @@ public class Chat extends Observable
     }
     public void deleteMessage(Nachricht n, int e)
     {
-        if(moderator.contains(e)||admin.contains(e))
+        if(n.getID()==e)
         {
-            nachricht.get(nachricht.indexOf(n)).setNachricht("Nachricht wurde geloescht.");
+            nachricht.get(nachricht.indexOf(n)).setNachricht("Nachricht wurde geloescht. ("+datenbank.getName(e)+")");
+        }
+        else if(moderator.contains(e))
+        {
+            if(!(moderator.contains(n.getID())) || !(admin.contains(n.getID())))
+            {
+                nachricht.get(nachricht.indexOf(n)).setNachricht("Nachricht wurde geloescht. ("+datenbank.getName(e)+")");
+            }
+        }
+        else if(admin.contains(e))
+        {
+            nachricht.get(nachricht.indexOf(n)).setNachricht("Nachricht wurde geloescht. ("+datenbank.getName(e)+")");
         }
         update();
     }
     public void addModerator(int i, int e)
     {
-        if(moderator.contains(e)||admin.contains(e))
+        if(admin.contains(e))
         {
             if(!(moderator.contains(i)))
             {
@@ -79,13 +92,10 @@ public class Chat extends Observable
     }
     public void deleteModerator(int i, int e)
     {
-        if(moderator.contains(e)||admin.contains(e))
+        if(admin.contains(e))
         {
-            if(!(admin.contains(i)))
-            {
-                moderator.remove(moderator.indexOf(i));
-                nachricht.add(new Nachricht("System", 0, datenbank.getName(i)+" ist nun kein Moderator mehr! ("+datenbank.getName(e)+")"));
-            }
+            moderator.remove(moderator.indexOf(i));
+            nachricht.add(new Nachricht("System", 0, datenbank.getName(i)+" ist nun kein Moderator mehr! ("+datenbank.getName(e)+")"));
         }
         update();
     }
@@ -95,14 +105,25 @@ public class Chat extends Observable
     }
     public void addBan(int i, int e)
     {
-        if(moderator.contains(e)||admin.contains(e))
+        if(admin.contains(e))
         {
-            if(!(moderator.contains(i))||!(admin.contains(i)))
+            if(moderator.contains(i))
             {
-                if(!(gebannt.contains(i)))
+                moderator.remove(moderator.indexOf(i));
+                gebannt.add(i);
+            }
+            else
+            {
+                gebannt.add(i);
+            }
+        }
+        else if(moderator.contains(e))
+        {
+            if(!(moderator.contains(i)))
+            {
+                if(!(admin.contains(i)))
                 {
                     gebannt.add(i);
-                    nachricht.add(new Nachricht("System", 0, datenbank.getName(i)+" wurde gebannt. ("+datenbank.getName(e)+")"));
                 }
             }
         }
@@ -115,7 +136,7 @@ public class Chat extends Observable
             if(gebannt.contains(i))
             {
                 gebannt.remove(gebannt.indexOf(i));
-                nachricht.add(new Nachricht("System", 0, datenbank.getName(i)+" wurde entbann. ("+datenbank.getName(e)+")"));
+                nachricht.add(new Nachricht("System", 0, datenbank.getName(i)+" wurde entbannt. ("+datenbank.getName(e)+")"));
             }
         }
         update();
