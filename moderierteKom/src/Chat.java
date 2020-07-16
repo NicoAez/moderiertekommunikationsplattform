@@ -20,8 +20,7 @@ public class Chat extends Observable
         this.id = id;
         datenbank = d;
 
-        addNachricht(new Nachricht("System", 0, "Erste Nachricht wird jetzt als changelog abused: \n - bug fixes \n - passwort bestätigen mit enter" +
-                "\n - nachricht abschicken mit enter"));
+        addNachricht(new Nachricht("System", 0, "Erste Nachricht wird jetzt als changelog abused: \n - fenster zum testen von sachen auf gechillter 187 basis, wer nicht checkt wie man das benutzt der hat sich nicht genug damit auseinandergesetzt"));
 
         moderator.add(187);
     }

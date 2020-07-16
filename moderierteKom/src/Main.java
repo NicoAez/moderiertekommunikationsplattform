@@ -20,5 +20,6 @@ public class Main
         ModKomView mkView = new ModKomView(10);
         ModKom mk = new ModKom(datenbank, chat);
         Controller mkController = new Controller(mkView, mk);
+        ChatController187 cc = new ChatController187(chat);
     }
 }

@@ -31,7 +31,6 @@ public class Controller implements Observer
             public void actionPerformed(ActionEvent e)
             {
                 model.ban();
-                view.changerino(model.getCS());
                 view.switchTopPane(0);
             }
         });
@@ -40,7 +39,6 @@ public class Controller implements Observer
             public void actionPerformed(ActionEvent e)
             {
                 model.unban();
-                view.changerino(model.getCS());
                 view.switchTopPane(0);
             }
         });
@@ -49,7 +47,6 @@ public class Controller implements Observer
             public void actionPerformed(ActionEvent e)
             {
                 model.delete();
-                view.changerino(model.getCS());
                 view.switchTopPane(0);
             }
         });
@@ -58,7 +55,6 @@ public class Controller implements Observer
             public void actionPerformed(ActionEvent e)
             {
                 model.modOnly();
-                view.changerino(model.getCS());
             }
         });
         this.view.alOkButton(new ActionListener() {
@@ -97,7 +93,6 @@ public class Controller implements Observer
             public void actionPerformed(ActionEvent e)
             {
                 model.addNachricht(view.getNachricht(model.getCS()));
-                view.changerino(model.getCS());
             }
         });
         // Methode unter mir als "Ersatz" zur theoretischen Methode darunter
@@ -111,7 +106,6 @@ public class Controller implements Observer
                 {
                     e.consume();
                     model.addNachricht(view.getNachricht(model.getCS()));
-                    view.changerino(model.getCS());
                 }
             }
             @Override
@@ -171,5 +165,6 @@ public class Controller implements Observer
     {
         view.clear();
         model.updateChat(view.getChat());
+        view.changerino(model.getCS());
     }
 }
