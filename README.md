@@ -19,7 +19,5 @@ Anmeldedaten:
 
 Bekannte Fehler und Sonstiges:
 - Keine bekannten Fehler 
-- geplant: Nachrichten löschen über das Testfenster
-- geplant: "System" besser integrieren
 
 Wenn ihr Fehler findet oder Anregungen habt, wie besprochen im #allgemein Channel auf Discord.
