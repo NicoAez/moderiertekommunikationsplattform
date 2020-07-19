@@ -13,7 +13,11 @@ public class Benutzer
 
     public boolean anmelden(String n, String p)
     {
-        if(name.equalsIgnoreCase(n)&&pw.equals(p))
+        if(id<0)
+        {
+            return false;
+        }
+        else if(name.equalsIgnoreCase(n)&&pw.equals(p))
         {
             return true;
         }

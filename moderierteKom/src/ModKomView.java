@@ -269,7 +269,7 @@ public class ModKomView extends JFrame
         }
         else
         {
-            label.setText("Der angegebene Name oder das angegebene Passwort ist falsch!       :( ");
+            label.setText("Der angegebene Name oder das angegebene Passwort ist falsch!                     :( ");
             label.setForeground(nein);
         }
     }

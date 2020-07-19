@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
@@ -20,13 +21,12 @@ public class anzeigeNachricht extends JTextArea implements MouseListener
 
     public anzeigeNachricht(boolean b, String name, String nachricht)
     {
-        setMaximumSize(new Dimension(280, Integer.MAX_VALUE));
         setEditable(false);
         setText(name+"\n"+nachricht);
         setLineWrap(true);
         setWrapStyleWord(true);
         addMouseListener(this);
-        setBorder(new EmptyBorder(5,10,5,10));
+        setBorder(new EmptyBorder(5,5,5,5));
         setForeground(sFarbe);
         own = b;
 

@@ -11,6 +11,7 @@ public class simulierteDatenbank
     }
     public void fill()
     {
+        liste.add(new Benutzer("System", "", -1));
         liste.add(new Benutzer("Nico", "187Straßenbande", 1));
         liste.add(new Benutzer("Deniz", "307lebt", 2));
         liste.add(new Benutzer("Anton", "Internetrambo", 3));
@@ -40,6 +41,6 @@ public class simulierteDatenbank
                 return liste.get(i).getName();
             }
         }
-        return "System"; // oder System als Benutzer hinzufügen und dann tatsächlich "Fehler" o.ä. anzeigen
+        return "[Fehler]";
     }
 }

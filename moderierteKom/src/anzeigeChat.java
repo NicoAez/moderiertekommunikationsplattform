@@ -26,6 +26,7 @@ public class anzeigeChat extends JPanel
         setSize(new Dimension(1000,600));
         panel.setSize(new Dimension(1000,700));
         panel.setBackground(new Color(50, 50, 50));
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.getVerticalScrollBar().setUnitIncrement(50);
         scrollPane.setSize(new Dimension(1000,700));
         panel.setLayout(new GridBagLayout());
